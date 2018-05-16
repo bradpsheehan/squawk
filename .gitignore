@@ -24,3 +24,20 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+*.dump
+.idea
+*.DS_Store
+
+/log
+/tmp
+/coverage
+.byebug_history
+.env
+.foreman
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
+.keep

@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require activestorage
 //= require turbolinks
+//= require ./channels/chatrooms
+//= require ./channels/messages
 //= require_tree .

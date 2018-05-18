@@ -7,7 +7,7 @@ RSpec.feature 'Message transmission', js: true do
 
   describe 'in chatroom' do
     xit 'users send and receive messages' do
-      login_as(user1)
+      sign_in_as(user1)
       click_link chatroom.slug
 
       expect(current_path).to eq chatroom_path(chatroom.slug)
@@ -32,8 +32,8 @@ RSpec.feature 'Message transmission', js: true do
     end
   end
 
-  def login_as(user)
-    visit login_path
+  def sign_in_as(user)
+    visit sign_in_path
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
     click_on 'Submit'

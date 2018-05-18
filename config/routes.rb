@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   resources :chatrooms, param: :slug
   resources :messages
 
-  get '/signup' => 'users#new'
+  get '/sign_up' => 'users#new'
   post '/users' => 'users#create'
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  get '/sign_in' => 'sessions#new'
+  post '/sign_in' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   root to: 'users#new'

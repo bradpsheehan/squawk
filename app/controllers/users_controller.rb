@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to chatrooms_path
     else
-      redirect_to '/signup'
+      redirect_to '/sign_up'
     end
   end
 

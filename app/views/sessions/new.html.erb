@@ -1,9 +1,18 @@
-<h1>Login</h1>
+<div class="container col-xs-3 col-md-3 card">
+  <div class="card-body">
+    <%= form_for :session, url: '/sign_in', method: :post do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
 
-<%= form_tag '/login' do %>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+        <%= submit_tag "Sign in to Squawk", class: 'btn btn-success btn-block' %>
 
-<% end %>
+    <% end %>
+  </div>
+</div>

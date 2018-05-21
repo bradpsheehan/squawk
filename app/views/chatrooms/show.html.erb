@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-chatroom=<%= @chatroom.id %>>
   <div class="row">
     <div class="col-md-12 col-md-offset-2">
       <h1><%= @chatroom.slug %></h1>
@@ -8,7 +8,7 @@
       <div class="card">
         <% if @chatroom.messages.any? %>
           <div class="card-body" id="messages">
-            <%= render partial: 'messages/message', collection: @chatroom.messages%>
+            <%= render partial: 'messages/message', collection: @messages%>
           </div>
         <%else%>
           <div class="card-body hidden" id="messages">

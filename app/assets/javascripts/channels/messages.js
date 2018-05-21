@@ -1,17 +1,22 @@
-App.messages = App.cable.subscriptions.create('MessagesChannel', {
+$(document).on("ready turbolinks:load", function() {
+  if (App.messages) {
+    App.cable.subscriptions.remove(App.messages);
+  }
+
+  App.messages = App.cable.subscriptions.create({
+    channel: 'MessagesChannel',
+    id: $('[data-chatroom]').data().chatroom
+  }, {
     received: function(data) {
-        $("#messages").removeClass('hidden')
-        var $message_form = $("#new_message")
-        $message_form[0].reset()
-        $("#message_submit").onkeydown = function(e){
-          if(e.keyCode == 13){
-            $message_form.submit()
-          }
-        };
-        return $('#messages').append(this.renderMessage(data));
+      $("#messages").removeClass('hidden')
+
+      $("#new_message")[0].reset()
+
+      return $('#messages').append(this.renderMessage(data));
     },
 
     renderMessage: function(data) {
-        return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
+      return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
     }
-});
+  });
+})
